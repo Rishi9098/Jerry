@@ -11,6 +11,8 @@ from .blueprints.students import students_bp
 from .blueprints.grades import grades_bp
 from .blueprints.courses import courses_bp
 from .blueprints.stats import stats_bp
+from .blueprints.degree_audit import degree_audit_bp
+from .blueprints.at_risk import at_risk_bp
 from .errors import ApiError
 
 
@@ -31,6 +33,8 @@ def create_app(database_uri: str | None = None) -> Flask:
     app.register_blueprint(grades_bp)
     app.register_blueprint(courses_bp)
     app.register_blueprint(stats_bp)
+    app.register_blueprint(degree_audit_bp)
+    app.register_blueprint(at_risk_bp)
 
     @app.errorhandler(ApiError)
     def handle_api_error(err: ApiError):

@@ -52,6 +52,26 @@ const NAV: NavItem[] = [
       </svg>
     ),
   },
+  {
+    to: "/degree-audit",
+    label: "Degree Audit",
+    icon: (
+      <svg viewBox="0 0 18 18" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
+        <circle cx="9" cy="9" r="6.5" />
+        <path d="M6.5 9l2 2 3.5-3.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+  },
+  {
+    to: "/at-risk",
+    label: "At-Risk Alerts",
+    icon: (
+      <svg viewBox="0 0 18 18" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
+        <path d="M9 2.5L16 15H2L9 2.5z" strokeLinejoin="round" />
+        <path d="M9 7v4m0 2h.01" strokeLinecap="round" />
+      </svg>
+    ),
+  },
 ];
 
 export function Sidebar({

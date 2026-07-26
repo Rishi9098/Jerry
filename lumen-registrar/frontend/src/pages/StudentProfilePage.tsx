@@ -19,6 +19,9 @@ import { TranscriptTable } from "../features/grades/TranscriptTable";
 import { StudentSummaryCard } from "../features/students/StudentSummaryCard";
 import "../features/students/student-profile.css";
 
+import { OfficialTranscriptModal } from "../components/OfficialTranscriptModal";
+import { OfficialLetterModal } from "../components/OfficialLetterModal";
+
 export function StudentProfilePage() {
   const { id } = useParams();
   const studentId = Number(id);
@@ -38,6 +41,8 @@ export function StudentProfilePage() {
   const [editingGrade, setEditingGrade] = useState<Grade | null>(null);
   const [pendingDelete, setPendingDelete] = useState<Grade | null>(null);
   const [archiveOpen, setArchiveOpen] = useState(false);
+  const [transcriptModalOpen, setTranscriptModalOpen] = useState(false);
+  const [letterModalOpen, setLetterModalOpen] = useState(false);
 
   const summary = gradeData?.summary;
   const grades = gradeData?.grades ?? [];
@@ -142,6 +147,20 @@ export function StudentProfilePage() {
           </p>
         </div>
         <div className="page-head__actions">
+          <Button
+            variant="secondary"
+            onClick={() => setTranscriptModalOpen(true)}
+            disabled={isLoading || !student}
+          >
+            📄 Print Transcript
+          </Button>
+          <Button
+            variant="secondary"
+            onClick={() => setLetterModalOpen(true)}
+            disabled={isLoading || !student}
+          >
+            ✉ Standing Letter
+          </Button>
           <Button
             variant="secondary"
             onClick={() => navigate(`/students/${studentId}/edit`)}
@@ -273,6 +292,20 @@ export function StudentProfilePage() {
         onConfirm={confirmArchive}
         onCancel={() => setArchiveOpen(false)}
       />
+
+      {transcriptModalOpen && student && (
+        <OfficialTranscriptModal
+          student={student}
+          onClose={() => setTranscriptModalOpen(false)}
+        />
+      )}
+
+      {letterModalOpen && (
+        <OfficialLetterModal
+          studentId={studentId}
+          onClose={() => setLetterModalOpen(false)}
+        />
+      )}
     </div>
   );
 }

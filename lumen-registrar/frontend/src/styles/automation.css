@@ -1,0 +1,253 @@
+/* Automation Suite Styles — Lumen Registrar Design Tokens */
+
+/* Modal Backdrop & Dialog */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(4px);
+  padding: var(--space-4);
+  overflow-y: auto;
+}
+
+.modal-dialog {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-popover);
+  border: 1px solid var(--color-border);
+  width: 100%;
+  max-width: 760px;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  background: #1e293b;
+  color: #ffffff;
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-header__badge {
+  background: var(--color-primary);
+  color: #fff;
+  font-size: var(--text-label);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.modal-header__title {
+  font-size: var(--text-h3);
+  font-weight: 600;
+  margin: 0;
+}
+
+.modal-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.modal-body {
+  padding: var(--space-6);
+  color: var(--color-ink);
+  font-family: var(--font-ui);
+}
+
+/* Printable Transcript Styling */
+.transcript-doc {
+  background: #ffffff;
+  padding: var(--space-6);
+}
+
+.transcript-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.transcript-institution {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+.transcript-sub {
+  font-size: var(--text-caption);
+  color: var(--color-ink-muted);
+  margin-top: 2px;
+}
+
+.transcript-badge {
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: var(--text-label);
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.08em;
+}
+
+.transcript-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+  background: var(--color-canvas);
+  border: 1px solid var(--color-border);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-5);
+}
+
+.transcript-field__label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  letter-spacing: 0.05em;
+}
+
+.transcript-field__value {
+  font-size: var(--text-body);
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-top: 2px;
+}
+
+.transcript-standing-banner {
+  background: var(--color-primary-tint);
+  border: 1px solid var(--color-primary-tint-strong);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+  font-size: var(--text-cell);
+}
+
+.transcript-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--space-2);
+  font-size: var(--text-cell);
+}
+
+.transcript-table th {
+  background: var(--color-canvas);
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-ink-muted);
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.transcript-table td {
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Degree Audit Dashboard */
+.audit-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.audit-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-panel);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.audit-card:hover {
+  border-color: var(--color-primary);
+}
+
+.audit-card.is-active {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+.audit-progress-bar {
+  background: var(--color-border);
+  border-radius: 999px;
+  height: 8px;
+  overflow: hidden;
+  flex: 1;
+}
+
+.audit-progress-fill {
+  background: var(--color-primary);
+  height: 100%;
+  border-radius: 999px;
+  transition: width var(--duration-normal) var(--ease-out);
+}
+
+/* At-Risk Cards */
+.risk-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-panel);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.risk-card.high-severity {
+  border-left: 4px solid var(--color-danger);
+}
+
+.risk-card.medium-severity {
+  border-left: 4px solid var(--color-warning);
+}
+
+/* Print Overrides */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .modal-overlay,
+  .modal-overlay * {
+    visibility: visible;
+  }
+  .modal-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: #fff !important;
+    padding: 0 !important;
+  }
+  .modal-header,
+  .print-hide {
+    display: none !important;
+  }
+}

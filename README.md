@@ -48,6 +48,11 @@ A multi-agent orchestration system lives in `src/main/agents/`:
 - **Frontend**: React + Vite + TypeScript + TanStack Query + React Hook Form
 - **Backend**: Flask + SQLAlchemy + SQLite
 - **Features**: Student admissions, profile editing, grades management, dashboard metrics, command palette (`⌘K`), CSV export
+- **Automated Registrar Suite**:
+  - **Academic Standing Engine**: Automatically computes honors (Dean's List / High Honors) vs. probation risks and generates official administrative letters.
+  - **Degree Audit & Graduation Eligibility Engine**: Audits total earned credits toward 120-credit degree targets and classifies student readiness (*Graduation Ready*, *On Track*, *Credit Shortfall*).
+  - **Official Academic Transcript Generator**: 1-click printable/downloadable official university academic transcript with term breakdowns and registrar seal authentication.
+  - **At-Risk Early Warning & Intervention System**: Automated detector flagging academic deficiencies (D/F grades, GPA drop, unrecorded grades) and queuing advisor action plans.
 
 ### Workspace
 `workspace/` contains exploratory prototypes — a Flask todo app, user API examples, and JavaScript/Python experiments used during development.

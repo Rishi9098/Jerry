@@ -45,6 +45,7 @@ export interface Student {
   archived: boolean;
   createdAt: string;
   gpa: number | null;
+  academicStanding?: string;
   gradeCount: number;
   grades?: Grade[];
 }

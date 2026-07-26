@@ -115,7 +115,18 @@ export function StudentSummaryCard({
         </dl>
 
         <dl className="detail-group">
-          <p className="section-label detail-group__head">Academic</p>
+          <p className="section-label detail-group__head">Academic Standing & Degree Audit</p>
+          <Row label="Standing">
+            <span className="font-semibold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded text-xs">
+              {student.academicStanding || "Good Standing"}
+            </span>
+          </Row>
+          <Row label="Earned Credits">
+            <span className="tnum font-bold text-slate-900">
+              {summary?.totalCredits ?? 0}
+            </span>{" "}
+            / 120 cr
+          </Row>
           <Row label="Program">
             {student.courseName ?? "—"}
             {student.courseCode && (

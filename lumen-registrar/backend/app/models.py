@@ -81,6 +81,22 @@ class Student(db.Model):
     def gpa(self) -> float | None:
         return compute_gpa(self.grades)
 
+    @property
+    def academic_standing(self) -> str:
+        gpa_val = self.gpa()
+        if gpa_val is None:
+            return "Unevaluated"
+        if gpa_val >= 3.80:
+            return "High Honors"
+        elif gpa_val >= 3.50:
+            return "Dean's List"
+        elif gpa_val >= 2.00:
+            return "Good Standing"
+        elif gpa_val >= 1.50:
+            return "Academic Warning"
+        else:
+            return "Academic Probation"
+
     def to_dict(self, include_grades: bool = False) -> dict:
         data = {
             "id": self.id,
@@ -97,6 +113,7 @@ class Student(db.Model):
             "archived": self.archived,
             "createdAt": self.created_at.isoformat() if self.created_at else None,
             "gpa": self.gpa(),
+            "academicStanding": self.academic_standing,
             "gradeCount": len(self.grades),
         }
         if include_grades:

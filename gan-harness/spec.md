@@ -36,16 +36,18 @@ This is an internal admin/ERP tool, not a marketing site. The aesthetic target i
 
 ### Must-Have (Sprint 1–2)
 
-1. **App shell & navigation**: Left sidebar (Dashboard, Students, Grades, optionally Courses), top bar with global search and breadcrumb. Active route is visually unmistakable. Acceptance: every page reachable in ≤2 clicks; active nav item styled distinctly; responsive collapse to icon rail below 1024px.
-2. **Student admissions form**: Create a student with name, email, phone, date of birth, course, year of enrollment. Acceptance: inline per-field validation (required name; valid email format; phone format; DOB not in future and within sane age range; year of enrollment within plausible bounds); disabled submit until valid; success toast + redirect to the new profile; server validation mirrored.
-3. **Students list (data table)**: Paginated, sortable table of all students showing name, ID, course, year, email, status. Acceptance: column sort, client-or-server pagination, row click opens profile, sticky header, tabular numerals on numeric columns, graceful empty state.
-4. **Search & filter students**: Debounced text search (name/email/ID) plus filter by course and enrollment year. Acceptance: filters reflected in URL query params (shareable/back-button safe); result count shown; "no results" state distinct from "no data" state.
-5. **Student profile — view**: Profile page showing all details in a clear, grouped read layout (identity, contact, academic) plus a grades summary section. Acceptance: all admission fields rendered; computed age from DOB; GPA/average from grades; clear edit affordance.
-6. **Student profile — edit**: Edit all student details inline or via an edit mode/panel. Acceptance: pre-filled fields, same validation as admissions, optimistic update with rollback on error, dirty-state guard before navigating away, success feedback.
-7. **Grades management — add**: Add a grade for a student: subject/course, term/semester, score and/or letter grade, optional credits. Acceptance: subject required, score within 0–100 or valid letter, prevents impossible values, attaches to correct student, immediate reflection in profile and grade table.
-8. **Grades management — view**: Per-student grade table (transcript view): subject, term, score, letter, credits, with computed GPA/weighted average. Acceptance: grouped or sortable by term/subject, tabular alignment, grade chips colored by band, recompute summary on change.
-9. **Edit / delete grade**: Update or remove an existing grade entry. Acceptance: edit pre-fills, delete asks for confirmation, summary recomputes, errors surfaced.
-10. **Loading, empty, and error states everywhere**: Skeleton loaders for tables/profiles, distinct empty states, inline + toast error handling, 404 for unknown student. Acceptance: no raw spinners-only screens; no unhandled error blanks; every async surface has all three states.
+1. **App shell & navigation**: Left sidebar (Dashboard, Students, Grades, Courses, Degree Audit, At-Risk Alerts), top bar with global search and breadcrumb. Active route is visually unmistakable.
+2. **Student admissions form**: Create a student with name, email, phone, date of birth, course, year of enrollment.
+3. **Students list (data table)**: Paginated, sortable table of all students showing name, ID, course, year, email, status.
+4. **Search & filter students**: Debounced text search (name/email/ID) plus filter by course and enrollment year.
+5. **Student profile — view**: Profile page showing all details in a clear, grouped read layout (identity, contact, academic standing) plus a grades summary section.
+6. **Student profile — edit**: Edit all student details inline or via an edit mode/panel.
+7. **Grades management — add/edit/delete**: Add, edit, or delete grades per course and term with automated credit-weighted GPA recalculation.
+8. **Automated Registrar Suite (Sprint 3–4)**:
+   - **Academic Standing Engine**: Evaluates GPAs to assign standings (*High Honors*, *Dean's List*, *Good Standing*, *Academic Warning*, *Academic Probation*) and generates official administrative letters.
+   - **Degree Audit & Graduation Eligibility Engine**: Audits earned credits toward 120-credit degree targets and classifies student readiness (*Graduation Ready*, *On Track*, *Credit Shortfall*, *GPA Deficit*).
+   - **Official Academic Transcript PDF Generator**: 1-click printable/downloadable official university academic transcript with term breakdowns and registrar seal authentication.
+   - **At-Risk Early Warning & Intervention System**: Automated detector flagging academic deficiencies (D/F grades, GPA drop, unrecorded grades) and queuing advisor action plans.
 
 ### Should-Have (Sprint 3–4)
 
